@@ -4,16 +4,23 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { SearchService } from './search.service'
 import { HttpClientModule, HttpClient } from '@angular/common/http';
+import { HeaderComponent } from './header/header.component';
+import { SearchResultComponent } from './search-result/search-result.component';
+import { AppRoutingModule } from './app-routing.module';
+import { NavService } from './nav-service'
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    HeaderComponent,
+    SearchResultComponent,
   ],
   imports: [
     BrowserModule,
-    HttpClientModule
+    HttpClientModule,
+    AppRoutingModule
   ],
-  providers: [SearchService, HttpClientModule, HttpClient],
+  providers: [SearchService, NavService,HttpClientModule, HttpClient],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
