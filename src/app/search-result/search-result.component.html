@@ -1,4 +1,4 @@
-<div class="container container-height" >
+<div class="container container-height">
   <div *ngIf="searchResults.length > 0">
     <b>Total Results: {{ totalCounts }}</b>
   </div>
@@ -38,7 +38,7 @@
         </div>
       </div>
       <div
-        class="row"
+        class="row mt-1"
         *ngIf="searchResult.showDetails === 'true' && repoApiSuccess"
       >
         <div class="col">
@@ -79,6 +79,9 @@
               </div>
               <div class="col"></div>
             </div> -->
+          </div>
+          <div *ngIf="searchResult.repos.length == 0" class="text-center">
+            <h5><b> No repositories for this user</b></h5>
           </div>
         </div>
       </div>

@@ -2,12 +2,12 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
-import { SearchService } from './search.service'
+import { SearchService } from './services/search.service'
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { HeaderComponent } from './header/header.component';
 import { SearchResultComponent } from './search-result/search-result.component';
 import { AppRoutingModule } from './app-routing.module';
-import { NavService } from './nav-service'
+import { NavService } from './services/nav-service'
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome'
 import {NgxPaginationModule} from 'ngx-pagination';
 

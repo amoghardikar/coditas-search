@@ -1,7 +1,7 @@
 import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { Subject } from 'rxjs';
-import { SearchService } from '../search.service'
-import { NavService } from '../nav-service'
+import { SearchService } from '../services/search.service'
+import { NavService } from '../services/nav-service'
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
 
 @Component({

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Subject } from 'rxjs';
-import { SearchService } from '../search.service';
-import { NavService } from '../nav-service';
+import { SearchService } from '../services/search.service';
+import { NavService } from '../services/nav-service';
 @Component({
   selector: 'app-search-result',
   templateUrl: './search-result.component.html',
