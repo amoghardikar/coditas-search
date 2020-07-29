@@ -25,6 +25,9 @@ export class HeaderComponent implements OnInit {
         value['sorting'] = 'false';
         value['results'] = results
         this.navService.emitNavChangeEvent(value);
+      },
+      error=>{
+        alert("Some error in getting data")
       });
   }
 

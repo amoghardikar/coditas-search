@@ -1,16 +1,20 @@
-.row-height{
+.row-height {
   height: 100%;
 }
-.container-height{
+.container-height {
   height: 50px;
   background: #3973dd;
 }
-.icon{
+.icon {
   position: absolute;
   color: grey;
   right: 35%;
   top: 7px;
 }
-.search-box-parent{
+.search-box-parent {
   width: 70%;
+}
+
+.dropdown-width {
+  width: 50px;
 }

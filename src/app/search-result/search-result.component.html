@@ -1,12 +1,12 @@
-<div class="container">
-  <div>
+<div class="container container-height" >
+  <div *ngIf="searchResults.length > 0">
     <b>Total Results: {{ totalCounts }}</b>
   </div>
   <div
     class="card card-margin"
     *ngFor="
       let searchResult of searchResults
-        | paginate: { itemsPerPage: 4, currentPage: p }
+        | paginate: { itemsPerPage: 4, currentPage: pageNumber }
     "
   >
     <div class="card-body">
@@ -86,12 +86,15 @@
   </div>
   <div class="pagination-parent" *ngIf="searchResults.length > 0">
     <pagination-controls
-      (pageChange)="p = $event"
+      (pageChange)="pageNumber = $event"
       directionLinks="false"
       autoHide="true"
       responsive="true"
       previousLabel=""
       nextLabel=""
     ></pagination-controls>
+  </div>
+  <div class="empty-view-text" *ngIf="searchResults.length == 0">
+    Please search username
   </div>
 </div>

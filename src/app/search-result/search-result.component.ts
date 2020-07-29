@@ -11,7 +11,7 @@ export class SearchResultComponent implements OnInit {
   subscription: any;
   searchResults = [];
   totalCounts = 0;
-  p: number = 1
+  pageNumber: number = 1
   repoApiSuccess =  false;
   constructor(private navService: NavService, private searchService: SearchService) {}
   ngOnInit(): void {
@@ -94,7 +94,7 @@ export class SearchResultComponent implements OnInit {
       
     },
     err=> {
-
+      alert("Some error in getting repositories")
     })
   }
 }
