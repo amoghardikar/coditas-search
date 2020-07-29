@@ -12,7 +12,7 @@ import { switchMap } from 'rxjs/operators';;
 @Injectable()
 export class SearchService {
   baseUrl: string = 'https://api.github.com/search/users?q=';
-  queryUrl: string = '?search=';
+  repoURL = "https://api.github.com/users/"
 
   constructor(private http: HttpClient) { }
 
@@ -29,5 +29,8 @@ export class SearchService {
   searchEntries(term) {
     return this.http
         .get(this.baseUrl+ term)
+  }
+  getRepos(username){
+    return this.http.get(this.repoURL+ username + '/repos')
   }
 }
