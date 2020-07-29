@@ -16,6 +16,8 @@ export class HeaderComponent implements OnInit {
   @Output()
   change: EventEmitter<{}> = new EventEmitter<{}>();
   constructor(private searchService: SearchService, private navService:NavService) {
+    console.log('typed data')
+    console.log(this.searchTerm$);
     this.searchService.search(this.searchTerm$)
       .subscribe(results => {
         console.log(results)

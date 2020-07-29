@@ -16,6 +16,8 @@ export class SearchService {
   constructor(private http: HttpClient) { }
 
   search(terms: Observable<string>) {
+    console.log('printing terms')
+    console.log(terms)
     return  terms
   .pipe(debounceTime(800),
         distinctUntilChanged(),
@@ -23,6 +25,9 @@ export class SearchService {
   }
 
   searchEntries(term) {
+    console.log('calling search')
+   // console.log(term)
+    if(term !== '')
     return this.http
         .get(Constants.HOST +'search/users?q='+ term)
   }
