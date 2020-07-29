@@ -20,7 +20,10 @@ export class HeaderComponent implements OnInit {
         console.log(results)
         //this.results = results['results'];
         //console.log(this.results)
-        this.navService.emitNavChangeEvent(results);
+        let value = {}
+        value['sorting'] = 'false';
+        value['results'] = results
+        this.navService.emitNavChangeEvent(value);
       });
   }
 

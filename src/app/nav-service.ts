@@ -1,9 +1,9 @@
 import { EventEmitter } from '@angular/core';
 export class NavService {
-  navchange: EventEmitter<number> = new EventEmitter();
+  navchange: EventEmitter<any> = new EventEmitter();
   constructor() {}
-  emitNavChangeEvent(number) {
-    this.navchange.emit(number);
+  emitNavChangeEvent(eventData) {
+    this.navchange.emit(eventData);
   }
   getNavChangeEmitter() {
     return this.navchange;
