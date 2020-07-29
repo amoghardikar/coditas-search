@@ -30,5 +30,33 @@ export class HeaderComponent implements OnInit {
 
   ngOnInit(): void {
   }
+  sortList(index : any){
+    let value = {}
+        value['sorting'] = 'true';
+        console.log('in sortlist function')
+        console.log(index);
+    switch(index){
+      case '0': 
+        value['sordtByAscending'] = "true";
+        console.log('in 0')
+        break;
+      case '1' :
+        value['sortByDescending'] = "true";
+        break;
+      
+      case '2' :
+        value['sortByUpperRank'] = "true";
+        break;
+      
+      case '3' :
+        value['sortByLowerRank'] = "true";
+        break;
+     
+
+    }
+    console.log(value)
+    this.navService.emitNavChangeEvent(value);
+
+  }
 
 }
