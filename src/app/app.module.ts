@@ -8,6 +8,7 @@ import { HeaderComponent } from './header/header.component';
 import { SearchResultComponent } from './search-result/search-result.component';
 import { AppRoutingModule } from './app-routing.module';
 import { NavService } from './nav-service'
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome'
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { NavService } from './nav-service'
   imports: [
     BrowserModule,
     HttpClientModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FontAwesomeModule
   ],
   providers: [SearchService, NavService,HttpClientModule, HttpClient],
   bootstrap: [AppComponent]

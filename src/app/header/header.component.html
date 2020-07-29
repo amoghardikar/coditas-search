@@ -1,16 +1,31 @@
-<div class="dropdown">
-    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-      Dropdown button
-    </button>
-    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-      <a class="dropdown-item" (click)="sortList('0')">Name(A-Z)</a>
-      <a class="dropdown-item" (click)="sortList('1')">Name(Z-A)</a>
-      <a class="dropdown-item" (click)="sortList('2')">Rank ↑</a>
-      <a class="dropdown-item" (click)="sortList('3')">Rank ↓</a>
-      
+<div class="container container-height">
+  <div class="row row-height">
+    <div class="col align-self-center">
+      <div class="d-flex float-right">
+        <div class="dropdown">
+          <button
+            class="btn btn-light dropdown-toggle"
+            type="button"
+            id="dropdownMenuButton"
+            data-toggle="dropdown"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >
+            Sort by Name
+          </button>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <a class="dropdown-item" (click)="sortList('0')">Name(A-Z)</a>
+            <a class="dropdown-item" (click)="sortList('1')">Name(Z-A)</a>
+            <a class="dropdown-item" (click)="sortList('2')">Rank ↑</a>
+            <a class="dropdown-item" (click)="sortList('3')">Rank ↓</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col align-self-center">
+      <div class="search-box-parent">
+        <input type="text" class="form-control" (keyup)="searchTerm$.next($event.target.value)"/>        
+          <fa-icon [icon]="faSearch" class="icon"></fa-icon>
     </div>
   </div>
-  <div>
-    <input
-    (keyup)="searchTerm$.next($event.target.value)">
-  </div>
+</div>

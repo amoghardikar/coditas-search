@@ -2,6 +2,7 @@ import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { Subject } from 'rxjs';
 import { SearchService } from '../search.service'
 import { NavService } from '../nav-service'
+import { faSearch } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-header',
@@ -9,7 +10,7 @@ import { NavService } from '../nav-service'
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
-
+  faSearch = faSearch;
   results: Object;
   searchTerm$ = new Subject<string>();
   @Output()
