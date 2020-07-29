@@ -1,6 +1,14 @@
 <div class="container">
-  <div> <b>Total Results: {{ totalCounts }}</b></div>
-  <div class="card" *ngFor="let searchResult of searchResults">
+  <div>
+    <b>Total Results: {{ totalCounts }}</b>
+  </div>
+  <div
+    class="card card-margin"
+    *ngFor="
+      let searchResult of searchResults
+        | paginate: { itemsPerPage: 4, currentPage: p }
+    "
+  >
     <div class="card-body">
       <div class="row">
         <div class="col">
@@ -29,12 +37,14 @@
           </button>
         </div>
       </div>
-      <div class="row" *ngIf="searchResult.showDetails === 'true'">
+      <div
+        class="row"
+        *ngIf="searchResult.showDetails === 'true' && repoApiSuccess"
+      >
         <div class="col">
           <div
-            class="row"
             *ngFor="
-              let repo of searchResult.repos;
+              let repo of searchResult.repos | slice: 0:5;
               index as i;
               odd as isOdd;
               even as isEven
@@ -42,20 +52,46 @@
             [class.Odd]="isOdd"
             [class.even]="isEven"
           >
-            <div class="col"></div>
-            <div class="col">
-              <div class="row">
-                {{ repo.full_name }}
+            <div class="row">
+              <div class="col"></div>
+              <div class="col">
+                <div class="row">
+                  {{ repo.full_name }}
+                </div>
+              </div>
+              <div class="col">
+                <div class="row">
+                  {{ repo.language }}
+                </div>
               </div>
             </div>
-            <div class="col">
-              <div class="row">
-                {{ repo.language }}
+            <!-- <div class="row">
+              <div class="col"></div>
+              <div class="col">
+                <div class="row">Forks Count: {{ repo.forks_count }}</div>
               </div>
+              <div class="col"></div>
             </div>
+            <div class="row">
+              <div class="col"></div>
+              <div class="col">
+                <div class="row">Watchers Count: {{ repo.watchers_count }}</div>
+              </div>
+              <div class="col"></div>
+            </div> -->
           </div>
         </div>
       </div>
     </div>
+  </div>
+  <div class="pagination-parent" *ngIf="searchResults.length > 0">
+    <pagination-controls
+      (pageChange)="p = $event"
+      directionLinks="false"
+      autoHide="true"
+      responsive="true"
+      previousLabel=""
+      nextLabel=""
+    ></pagination-controls>
   </div>
 </div>

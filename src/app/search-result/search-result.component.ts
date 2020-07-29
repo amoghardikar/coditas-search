@@ -11,6 +11,8 @@ export class SearchResultComponent implements OnInit {
   subscription: any;
   searchResults = [];
   totalCounts = 0;
+  p: number = 1
+  repoApiSuccess =  false;
   constructor(private navService: NavService, private searchService: SearchService) {}
   ngOnInit(): void {
     this.subscription = this.navService
@@ -87,6 +89,7 @@ export class SearchResultComponent implements OnInit {
     this.searchService.getRepos(searchResultObj['login']).subscribe((res)=> {
       console.log('get repo res');
       console.log(res)
+      this.repoApiSuccess = true;
       searchResultObj['repos'] = res;
       
     },

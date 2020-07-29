@@ -9,6 +9,7 @@ import { SearchResultComponent } from './search-result/search-result.component';
 import { AppRoutingModule } from './app-routing.module';
 import { NavService } from './nav-service'
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome'
+import {NgxPaginationModule} from 'ngx-pagination';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome'
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    NgxPaginationModule
   ],
   providers: [SearchService, NavService,HttpClientModule, HttpClient],
   bootstrap: [AppComponent]
