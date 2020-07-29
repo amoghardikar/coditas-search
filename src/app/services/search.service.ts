@@ -7,19 +7,15 @@ import 'rxjs/add/operator/distinctUntilChanged';
 import 'rxjs/add/operator/switchMap';
 import { debounceTime,  } from 'rxjs/operators';
 import { distinctUntilChanged } from 'rxjs/operators';
-import { switchMap } from 'rxjs/operators';;
+import { switchMap } from 'rxjs/operators';
+import { Constants } from '../Constants'
 
 @Injectable()
 export class SearchService {
-  baseUrl: string = 'https://api.github.com/search/users?q=';
-  repoURL = "https://api.github.com/users/"
 
   constructor(private http: HttpClient) { }
 
   search(terms: Observable<string>) {
-    // return terms.debounceTime(100)
-    //   .distinctUntilChanged()
-    //   .switchMap(term => this.searchEntries(term));
     return  terms
   .pipe(debounceTime(800),
         distinctUntilChanged(),
@@ -28,9 +24,9 @@ export class SearchService {
 
   searchEntries(term) {
     return this.http
-        .get(this.baseUrl+ term)
+        .get(Constants.HOST +'search/users?q='+ term)
   }
   getRepos(username){
-    return this.http.get(this.repoURL+ username + '/repos')
+    return this.http.get(Constants.HOST +'users/'+ username + '/repos')
   }
 }
