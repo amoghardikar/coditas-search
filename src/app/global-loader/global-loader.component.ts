@@ -11,9 +11,9 @@ export class GlobalLoaderComponent implements OnInit {
 
   constructor(private loaderService: LoaderService) {
 
-    this.loaderService.isLoading.subscribe((v) => {
-      console.log(v);
-      this.loading = v;
+    this.loaderService.isLoading.subscribe((result) => {
+      console.log(result);
+      this.loading = result;
     });
 
   }
