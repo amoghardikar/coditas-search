@@ -11,18 +11,15 @@ import { faSearch } from '@fortawesome/free-solid-svg-icons';
 })
 export class HeaderComponent implements OnInit {
   faSearch = faSearch;
-  results: Object;
-  searchTerm$ = new Subject<string>();
-  @Output()
-  change: EventEmitter<{}> = new EventEmitter<{}>();
+  // variable assigned to input box 
+  searchTerm = new Subject<string>();
   constructor(private searchService: SearchService, private navService:NavService) {
     console.log('typed data')
-    console.log(this.searchTerm$);
-    this.searchService.search(this.searchTerm$)
+    console.log(this.searchTerm);
+    this.searchService.search(this.searchTerm)
       .subscribe(results => {
         console.log(results)
-        //this.results = results['results'];
-        //console.log(this.results)
+        // sending json to searchcomponent . sorting false meanins search is fired.
         let value = {}
         value['sorting'] = 'false';
         value['results'] = results
@@ -36,6 +33,7 @@ export class HeaderComponent implements OnInit {
 
   ngOnInit(): void {
   }
+  // switch case for sorting cases
   sortList(index : any){
     let value = {}
         value['sorting'] = 'true';
